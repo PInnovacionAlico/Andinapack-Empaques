@@ -36,11 +36,16 @@
         /* Estilos del indicador "dot" */
         #progressDot {
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
+            top: -48px; /* Subir más el carrito para mostrar las ruedas */
             left: 0%;
             transition: left 0.1s ease-out;
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
         }
+        
 
         /* Estilos de las diapositivas */
         .slide-item {
@@ -86,17 +91,19 @@
     <!-- Barra de progreso -->
     <div class="progress-container">
         <div id="progressBar"></div>
-        <!-- El nuevo indicador "dot" con un SVG más grande -->
+        <!-- Indicador carrito -->
         <div id="progressDot">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-lg">
-                <circle cx="10" cy="10" r="10" fill="white"/>
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-lg" style="width: 100%; height: 100%; max-width: 64px; max-height: 64px;">
+                <path d="M4.46785 10.2658C4.47574 10.3372 4.48376 10.4094 4.49187 10.4823L4.61751 11.6131C4.7057 12.4072 4.78218 13.0959 4.91562 13.6455C5.05917 14.2367 5.29582 14.7937 5.78931 15.2354C6.28281 15.6771 6.86251 15.8508 7.46598 15.9281C8.02694 16.0001 8.71985 16 9.51887 16H14.8723C15.4201 16 15.9036 16 16.3073 15.959C16.7448 15.9146 17.1698 15.8162 17.5785 15.5701C17.9872 15.324 18.2731 14.9944 18.5171 14.6286C18.7422 14.291 18.9684 13.8637 19.2246 13.3797L21.7141 8.67734C22.5974 7.00887 21.3879 4.99998 19.5 4.99998L9.39884 4.99998C8.41604 4.99993 7.57525 4.99988 6.90973 5.09287C6.5729 5.13994 6.24284 5.21529 5.93326 5.34375L5.78941 4.04912C5.65979 2.88255 4.67375 2 3.5 2H3C2.44772 2 2 2.44771 2 3C2 3.55228 2.44772 4 3 4H3.5C3.65465 4 3.78456 4.11628 3.80164 4.26998L4.46785 10.2658Z" fill="#FFD700"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M14 19.5C14 18.1193 15.1193 17 16.5 17C17.8807 17 19 18.1193 19 19.5C19 20.8807 17.8807 22 16.5 22C15.1193 22 14 20.8807 14 19.5Z" fill="#FFD700"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M5 19.5C5 18.1193 6.11929 17 7.5 17C8.88071 17 10 18.1193 10 19.5C10 20.8807 8.88071 22 7.5 22C6.11929 22 5 20.8807 5 19.5Z" fill="#FFD700"/>
             </svg>
         </div>
     </div>
     
     <!-- Slide 1 -->
-    <div class="slide-item relative">
-        <img src="https://placehold.co/1920x1080/4f46e5/ffffff?text=Capítulo+1" alt="Fondo de la diapositiva 1" class="absolute inset-0 w-full h-full object-cover">
+    <div class="slide-item relative" style="background-image: url('images/2.jpg');">
+        <img src="images/2.jpg" alt="Fondo de la diapositiva 1" class="absolute inset-0 w-full h-full object-cover">
         <div class="slide-content">
             <h2 class="text-3xl md:text-5xl font-bold mb-4">El Comienzo</h2>
             <div class="text-xl md:text-2xl font-light mb-6 text-gray-200">2024</div>
@@ -107,8 +114,8 @@
     </div>
 
     <!-- Slide 2 -->
-    <div class="slide-item relative">
-        <img src="https://placehold.co/1920x1080/059669/ffffff?text=Capítulo+2" alt="Fondo de la diapositiva 2" class="absolute inset-0 w-full h-full object-cover">
+    <div class="slide-item relative" style="background-image: url('images/3.jpg');">
+        <img src="images/3.jpg" alt="Fondo de la diapositiva 2" class="absolute inset-0 w-full h-full object-cover">
         <div class="slide-content">
             <h2 class="text-3xl md:text-5xl font-bold mb-4">La Expansión</h2>
             <div class="text-xl md:text-2xl font-light mb-6 text-gray-200">2023</div>
@@ -119,8 +126,8 @@
     </div>
 
     <!-- Slide 3 -->
-    <div class="slide-item relative">
-        <img src="https://placehold.co/1920x1080/f97316/ffffff?text=Capítulo+3" alt="Fondo de la diapositiva 3" class="absolute inset-0 w-full h-full object-cover">
+    <div class="slide-item relative" style="background-image: url('images/4.jpg');">
+        <img src="images/4.jpg" alt="Fondo de la diapositiva 3" class="absolute inset-0 w-full h-full object-cover">
         <div class="slide-content">
             <h2 class="text-3xl md:text-5xl font-bold mb-4">El Desafío</h2>
             <div class="text-xl md:text-2xl font-light mb-6 text-gray-200">2022</div>
@@ -131,8 +138,8 @@
     </div>
 
     <!-- Slide 4 -->
-    <div class="slide-item relative">
-        <img src="https://placehold.co/1920x1080/6366f1/ffffff?text=Capítulo+4" alt="Fondo de la diapositiva 4" class="absolute inset-0 w-full h-full object-cover">
+    <div class="slide-item relative" style="background-image: url('images/5.jpg');">
+        <img src="images/5.jpg" alt="Fondo de la diapositiva 4" class="absolute inset-0 w-full h-full object-cover">
         <div class="slide-content">
             <h2 class="text-3xl md:text-5xl font-bold mb-4">La Consolidación</h2>
             <div class="text-xl md:text-2xl font-light mb-6 text-gray-200">2021</div>
@@ -142,19 +149,91 @@
         </div>
     </div>
 
-    <script>
-        const progressBar = document.getElementById('progressBar');
-        const progressDot = document.getElementById('progressDot');
+    <!-- Sección oculta para transición -->
+        <div id="fadeSection" style="opacity:0; pointer-events:none; transition: opacity 1s; min-height:100vh; background:rgba(245,245,245,0.98); position:fixed; inset:0; z-index:100; display:flex; align-items:center; justify-content:center;">
+            <div class="w-full max-w-sm animate-fade-in-up overflow-hidden rounded-lg bg-white font-mono text-sm text-gray-800 shadow-2xl" style="box-shadow:0 10px 40px rgba(0,0,0,0.15);">
+                <div class="p-6 text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-12 w-12 mx-auto mb-2">
+                        <title>ChronoScroll Logo</title>
+                        <path d="M12 2a10 10 0 1 0 10 10"></path>
+                        <path d="m14.39 5.4-1.5 2.91a.5.5 0 0 1-.82.16L10 6.5"></path>
+                        <path d="m14 11.56 2.5 1.79a.5.5 0 0 1 .15.69l-1.5 2.91"></path>
+                        <path d="M12 22v-6"></path>
+                    </svg>
+                    <h2 class="mt-2 font-headline text-2xl font-bold">ChronoScroll</h2>
+                    <p class="text-gray-500">Journey Receipt</p>
+                </div>
+                <div class="border-y border-dashed border-gray-300 p-6">
+                    <div class="space-y-2">
+                        <div class="flex justify-between"><span>Date Completed:</span><span id="receipt-date">17/9/2025</span></div>
+                        <div class="flex justify-between"><span>Time Completed:</span><span id="receipt-time">--:--:--</span></div>
+                        <div class="flex justify-between"><span>Slides Viewed:</span><span id="receipt-slides">4 / 4</span></div>
+                    </div>
+                </div>
+                <div class="p-6 text-center">
+                    <p class="text-lg font-semibold">Thank you for exploring!</p>
+                    <p class="mt-2 text-xs text-gray-500">You have successfully journeyed through our timeline. We hope you enjoyed the experience.</p>
+                    <button id="startOverBtn" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 h-10 px-4 py-2 mt-6 w-full bg-yellow-400 text-gray-900 hover:bg-yellow-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path><path d="M8 16H3v5"></path></svg>
+                        Start Over
+                    </button>
+                </div>
+                <div class="h-4 w-full bg-repeat-x" style="background-image: url('data:image/svg+xml,%3csvg width=\'100%25\' height=\'100%25\' xmlns=\'http://www.w3.org/2000/svg\'%3e%3crect width=\'100%25\' height=\'100%25\' fill=\'none\' stroke=\'%23333\' stroke-width=\'4\' stroke-dasharray=\'6%2c 14\' stroke-dashoffset=\'0\' stroke-linecap=\'square\'/%3e%3c/svg%3e');"></div>
+            </div>
+        </div>
 
-        window.addEventListener('scroll', () => {
-            const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrolled = window.scrollY;
-            const progress = (scrolled / totalHeight) * 100;
-            progressBar.style.width = progress + '%';
-            
-            // Posicionamos el "dot"
-              progressDot.style.left = `calc(${progress}% - 10px)`;
-        });
-    </script>
+        <script>
+            const progressBar = document.getElementById('progressBar');
+            const progressDot = document.getElementById('progressDot');
+            const fadeSection = document.getElementById('fadeSection');
+            const receiptDate = document.getElementById('receipt-date');
+            const receiptTime = document.getElementById('receipt-time');
+            const receiptSlides = document.getElementById('receipt-slides');
+            const startOverBtn = document.getElementById('startOverBtn');
+
+            // Set date and time on receipt
+            function setReceiptInfo() {
+                const now = new Date();
+                const day = String(now.getDate()).padStart(2, '0');
+                const month = String(now.getMonth() + 1).padStart(2, '0');
+                const year = now.getFullYear();
+                const hours = String(now.getHours()).padStart(2, '0');
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                const seconds = String(now.getSeconds()).padStart(2, '0');
+                receiptDate.textContent = `${day}/${month}/${year}`;
+                receiptTime.textContent = `${hours}:${minutes}:${seconds}`;
+                // Count slides
+                const slides = document.querySelectorAll('.slide-item').length;
+                receiptSlides.textContent = `${slides} / ${slides}`;
+            }
+
+            window.addEventListener('scroll', () => {
+                const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrolled = window.scrollY;
+                const progress = (scrolled / totalHeight) * 100;
+                progressBar.style.width = progress + '%';
+                // Posicionamos el "dot"
+                progressDot.style.left = `calc(${progress}% - 10px)`;
+
+                // Mostrar recibo cuando el carrito llega al final
+                if (progress >= 99.5) {
+                    setReceiptInfo();
+                    fadeSection.style.opacity = 1;
+                    fadeSection.style.pointerEvents = 'auto';
+                } else {
+                    fadeSection.style.opacity = 0;
+                    fadeSection.style.pointerEvents = 'none';
+                }
+            });
+
+            // Reiniciar la experiencia
+            if (startOverBtn) {
+                startOverBtn.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    fadeSection.style.opacity = 0;
+                    fadeSection.style.pointerEvents = 'none';
+                });
+            }
+        </script>
 </body>
 </html>
