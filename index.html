@@ -45,6 +45,7 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
+            text-align: center; /* Centrado del texto para móviles */
         }
         
         /* Fondo de cada slide */
@@ -62,9 +63,8 @@
         }
 
         .slide-content {
-            padding: 3rem 2rem;
+            padding: 2rem 1.5rem; /* Padding responsivo, por defecto para móviles */
             max-width: 650px;
-            text-align: center;
             color: #fff;
             position: relative;
             z-index: 10;
@@ -75,13 +75,15 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
             transform: translateY(0);
             transition: transform 0.5s ease-in-out;
+            margin: 0 1rem; /* Margen para evitar que toque los bordes */
         }
 
-        /* Animación en el scroll */
-        .slide-item:hover .slide-content {
-            transform: translateY(-10px);
+        /* Ajustes de estilo para tablets y escritorios */
+        @media (min-width: 640px) {
+            .slide-content {
+                padding: 3rem 2rem;
+            }
         }
-
     </style>
 </head>
 <body class="bg-gray-100 antialiased">
@@ -94,9 +96,9 @@
     <!-- Slide 1 -->
     <div class="slide-item">
         <div class="slide-content">
-            <h2 class="text-4xl md:text-5xl font-bold mb-4">El Comienzo</h2>
-            <div class="text-2xl font-light mb-6 text-gray-200">2024</div>
-            <p class="text-lg">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4">El Comienzo</h2>
+            <div class="text-xl md:text-2xl font-light mb-6 text-gray-200">2024</div>
+            <p class="text-base md:text-lg">
                 El inicio de un gran viaje, donde las primeras ideas tomaron forma y se sembraron las semillas de lo que vendría después.
             </p>
         </div>
@@ -105,9 +107,9 @@
     <!-- Slide 2 -->
     <div class="slide-item">
         <div class="slide-content">
-            <h2 class="text-4xl md:text-5xl font-bold mb-4">La Expansión</h2>
-            <div class="text-2xl font-light mb-6 text-gray-200">2023</div>
-            <p class="text-lg">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4">La Expansión</h2>
+            <div class="text-xl md:text-2xl font-light mb-6 text-gray-200">2023</div>
+            <p class="text-base md:text-lg">
                 Un año de crecimiento acelerado y de superar los primeros obstáculos. Se construyeron los cimientos de nuestro futuro.
             </p>
         </div>
@@ -116,9 +118,9 @@
     <!-- Slide 3 -->
     <div class="slide-item">
         <div class="slide-content">
-            <h2 class="text-4xl md:text-5xl font-bold mb-4">El Desafío</h2>
-            <div class="text-2xl font-light mb-6 text-gray-200">2022</div>
-            <p class="text-lg">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4">El Desafío</h2>
+            <div class="text-xl md:text-2xl font-light mb-6 text-gray-200">2022</div>
+            <p class="text-base md:text-lg">
                 Enfrentamos un gran desafío que puso a prueba nuestra resiliencia, pero nos fortaleció como equipo y nos preparó para lo que vendría.
             </p>
         </div>
@@ -127,9 +129,9 @@
     <!-- Slide 4 -->
     <div class="slide-item">
         <div class="slide-content">
-            <h2 class="text-4xl md:text-5xl font-bold mb-4">La Consolidación</h2>
-            <div class="text-2xl font-light mb-6 text-gray-200">2021</div>
-            <p class="text-lg">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4">La Consolidación</h2>
+            <div class="text-xl md:text-2xl font-light mb-6 text-gray-200">2021</div>
+            <p class="text-base md:text-lg">
                 Marcamos nuestra presencia y consolidamos nuestra visión. Este año se definió nuestro camino a largo plazo.
             </p>
         </div>
