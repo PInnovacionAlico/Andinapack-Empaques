@@ -18,10 +18,10 @@
         /* Barra de progreso */
         .progress-container {
             position: fixed;
-            top: 0;
+            bottom: 0;
             left: 0;
             width: 100%;
-            height: 4px;
+            height: 12px; /* Grosor aumentado */
             background: rgba(255, 255, 255, 0.2);
             z-index: 50;
         }
@@ -31,6 +31,15 @@
             background: #fff;
             width: 0%;
             transition: width 0.1s ease-out;
+        }
+        
+        /* Estilos del indicador "dot" */
+        #progressDot {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0%;
+            transition: left 0.1s ease-out;
         }
 
         /* Estilos de las diapositivas */
@@ -45,25 +54,11 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            text-align: center; /* Centrado del texto para móviles */
+            text-align: center;
         }
         
-        /* Fondo de cada slide */
-        .slide-item:nth-child(1) {
-            background-image: url('https://placehold.co/1920x1080/4f46e5/ffffff?text=Capítulo+1');
-        }
-        .slide-item:nth-child(2) {
-            background-image: url('https://placehold.co/1920x1080/059669/ffffff?text=Capítulo+2');
-        }
-        .slide-item:nth-child(3) {
-            background-image: url('https://placehold.co/1920x1080/f97316/ffffff?text=Capítulo+3');
-        }
-        .slide-item:nth-child(4) {
-            background-image: url('https://placehold.co/1920x1080/6366f1/ffffff?text=Capítulo+4');
-        }
-
         .slide-content {
-            padding: 2rem 1.5rem; /* Padding responsivo, por defecto para móviles */
+            padding: 2rem 1.5rem;
             max-width: 650px;
             color: #fff;
             position: relative;
@@ -75,7 +70,7 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
             transform: translateY(0);
             transition: transform 0.5s ease-in-out;
-            margin: 0 1rem; /* Margen para evitar que toque los bordes */
+            margin: 0 1rem;
         }
 
         /* Ajustes de estilo para tablets y escritorios */
@@ -91,10 +86,17 @@
     <!-- Barra de progreso -->
     <div class="progress-container">
         <div id="progressBar"></div>
+        <!-- El nuevo indicador "dot" con un SVG más grande -->
+        <div id="progressDot">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-lg">
+                <circle cx="10" cy="10" r="10" fill="white"/>
+            </svg>
+        </div>
     </div>
     
     <!-- Slide 1 -->
-    <div class="slide-item">
+    <div class="slide-item relative">
+        <img src="https://placehold.co/1920x1080/4f46e5/ffffff?text=Capítulo+1" alt="Fondo de la diapositiva 1" class="absolute inset-0 w-full h-full object-cover">
         <div class="slide-content">
             <h2 class="text-3xl md:text-5xl font-bold mb-4">El Comienzo</h2>
             <div class="text-xl md:text-2xl font-light mb-6 text-gray-200">2024</div>
@@ -105,7 +107,8 @@
     </div>
 
     <!-- Slide 2 -->
-    <div class="slide-item">
+    <div class="slide-item relative">
+        <img src="https://placehold.co/1920x1080/059669/ffffff?text=Capítulo+2" alt="Fondo de la diapositiva 2" class="absolute inset-0 w-full h-full object-cover">
         <div class="slide-content">
             <h2 class="text-3xl md:text-5xl font-bold mb-4">La Expansión</h2>
             <div class="text-xl md:text-2xl font-light mb-6 text-gray-200">2023</div>
@@ -116,7 +119,8 @@
     </div>
 
     <!-- Slide 3 -->
-    <div class="slide-item">
+    <div class="slide-item relative">
+        <img src="https://placehold.co/1920x1080/f97316/ffffff?text=Capítulo+3" alt="Fondo de la diapositiva 3" class="absolute inset-0 w-full h-full object-cover">
         <div class="slide-content">
             <h2 class="text-3xl md:text-5xl font-bold mb-4">El Desafío</h2>
             <div class="text-xl md:text-2xl font-light mb-6 text-gray-200">2022</div>
@@ -127,7 +131,8 @@
     </div>
 
     <!-- Slide 4 -->
-    <div class="slide-item">
+    <div class="slide-item relative">
+        <img src="https://placehold.co/1920x1080/6366f1/ffffff?text=Capítulo+4" alt="Fondo de la diapositiva 4" class="absolute inset-0 w-full h-full object-cover">
         <div class="slide-content">
             <h2 class="text-3xl md:text-5xl font-bold mb-4">La Consolidación</h2>
             <div class="text-xl md:text-2xl font-light mb-6 text-gray-200">2021</div>
@@ -139,12 +144,16 @@
 
     <script>
         const progressBar = document.getElementById('progressBar');
+        const progressDot = document.getElementById('progressDot');
 
         window.addEventListener('scroll', () => {
             const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
             const scrolled = window.scrollY;
             const progress = (scrolled / totalHeight) * 100;
             progressBar.style.width = progress + '%';
+            
+            // Posicionamos el "dot"
+            progressDot.style.left = calc(${progress}% - 10px);
         });
     </script>
 </body>
