@@ -10,85 +10,112 @@
         
         body {
             font-family: 'Inter', sans-serif;
-            scroll-snap-type: y mandatory;
-            overflow-y: scroll;
-            overscroll-behavior: contain;
-        }
-
-        /* Barra de progreso */
-        .progress-container {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 12px; /* Grosor aumentado */
-            background: rgba(255, 255, 255, 0.2);
-            z-index: 50;
-        }
-        
-        #progressBar {
-            height: 100%;
-            background: #fff;
-            width: 0%;
-            transition: width 0.1s ease-out;
-        }
-        
-        /* Estilos del indicador "dot" */
-        #progressDot {
-            position: absolute;
-            top: -48px; /* Subir más el carrito para mostrar las ruedas */
-            left: 0%;
-            transition: left 0.1s ease-out;
-            width: 64px;
-            height: 64px;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-        }
-        
-
-        /* Estilos de las diapositivas */
-        .slide-item {
-            scroll-snap-align: start;
-            min-height: 100vh;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            text-align: center;
-        }
-        
-        .slide-content {
-            padding: 2rem 1.5rem;
-            max-width: 650px;
-            color: #fff;
-            position: relative;
-            z-index: 10;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 1.5rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transform: translateY(0);
-            transition: transform 0.5s ease-in-out;
-            margin: 0 1rem;
-        }
-
-        /* Ajustes de estilo para tablets y escritorios */
-        @media (min-width: 640px) {
-            .slide-content {
-                padding: 3rem 2rem;
-            }
-        }
-    </style>
-</head>
-<body class="bg-gray-100 antialiased">
-
-    <!-- Barra de progreso -->
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@700&display=swap');
+                body {
+                    font-family: 'Inter', sans-serif;
+                    background: #f7f7f7;
+                    scroll-snap-type: y mandatory;
+                    overflow-y: scroll;
+                    overscroll-behavior: contain;
+                }
+                .progress-container {
+                    position: fixed;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 12px;
+                    background: rgba(255,255,255,0.2);
+                    z-index: 50;
+                }
+                #progressBar {
+                    height: 100%;
+                    background: #fff;
+                    width: 0%;
+                    transition: width 0.1s ease-out;
+                }
+                #progressDot {
+                    position: absolute;
+                    top: -48px;
+                    left: 0%;
+                    transition: left 0.1s ease-out;
+                    width: 64px;
+                    height: 64px;
+                    display: flex;
+                    align-items: flex-end;
+                    justify-content: center;
+                }
+                .slide-item {
+                    scroll-snap-align: start;
+                    min-height: 100vh;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: none;
+                    text-align: left;
+                }
+                .slide-card {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 2rem;
+                    background: #fff;
+                    border-radius: 20px;
+                    box-shadow: 0 6px 32px rgba(0,0,0,0.10);
+                    overflow: hidden;
+                    max-width: 1200px;
+                    width: 100%;
+                    margin: 2rem auto;
+                    padding: 2rem;
+                }
+                @media (min-width: 900px) {
+                    .slide-card {
+                        flex-direction: row;
+                        align-items: center;
+                        padding: 2.5rem 3rem;
+                    }
+                }
+                .slide-img {
+                    flex: 1 1 45%;
+                    border-radius: 16px;
+                    box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+                    object-fit: cover;
+                    width: 100%;
+                    height: 320px;
+                    max-width: 520px;
+                }
+                @media (min-width: 900px) {
+                    .slide-img {
+                        height: 400px;
+                    }
+                }
+                .slide-info {
+                    flex: 1 1 55%;
+                    padding-left: 0;
+                }
+                @media (min-width: 900px) {
+                    .slide-info {
+                        padding-left: 2.5rem;
+                    }
+                }
+                .slide-title {
+                    font-family: 'Space Grotesk', 'Inter', sans-serif;
+                    font-size: 2.5rem;
+                    font-weight: 700;
+                    color: #22b8f9;
+                    margin-bottom: 1rem;
+                }
+                @media (min-width: 900px) {
+                    .slide-title {
+                        font-size: 3.5rem;
+                    }
+                }
+                .slide-desc {
+                    font-size: 1.25rem;
+                    color: #444;
+                    line-height: 1.6;
+                }
+            </style>
     <div class="progress-container">
         <div id="progressBar"></div>
         <!-- Indicador carrito -->
@@ -102,52 +129,48 @@
     </div>
     
     <!-- Slide 1 -->
-    <div class="slide-item relative" style="background-image: url('images/2.jpg');">
-        <img src="images/2.jpg" alt="Fondo de la diapositiva 1" class="absolute inset-0 w-full h-full object-cover">
-        <div class="slide-content">
-            <h2 class="text-3xl md:text-5xl font-bold mb-4">El Comienzo</h2>
-            <div class="text-xl md:text-2xl font-light mb-6 text-gray-200">2024</div>
-            <p class="text-base md:text-lg">
-                El inicio de un gran viaje, donde las primeras ideas tomaron forma y se sembraron las semillas de lo que vendría después.
-            </p>
+        <div class="slide-item">
+            <div class="slide-card">
+                <img src="images/2.jpg" alt="Valentinas Block" class="slide-img">
+                <div class="slide-info">
+                    <h2 class="slide-title">Valentinas Block</h2>
+                    <p class="slide-desc">The first block of a blockchain, known as the genesis block, is the foundation upon which all other blocks are built. It's the starting point of the chain, hardcoded into the software. For Bitcoin, this block was mined in 2009, embedding a headline from The Times newspaper, a commentary on the instability of the existing financial system. This simple act set the stage for a decentralized revolution.</p>
+                </div>
+            </div>
         </div>
-    </div>
 
     <!-- Slide 2 -->
-    <div class="slide-item relative" style="background-image: url('images/3.jpg');">
-        <img src="images/3.jpg" alt="Fondo de la diapositiva 2" class="absolute inset-0 w-full h-full object-cover">
-        <div class="slide-content">
-            <h2 class="text-3xl md:text-5xl font-bold mb-4">La Expansión</h2>
-            <div class="text-xl md:text-2xl font-light mb-6 text-gray-200">2023</div>
-            <p class="text-base md:text-lg">
-                Un año de crecimiento acelerado y de superar los primeros obstáculos. Se construyeron los cimientos de nuestro futuro.
-            </p>
+        <div class="slide-item">
+            <div class="slide-card">
+                <img src="images/3.jpg" alt="Age of Discovery" class="slide-img">
+                <div class="slide-info">
+                    <h2 class="slide-title">Age of Discovery</h2>
+                    <p class="slide-desc">The 15th and 16th centuries marked a period of unprecedented European exploration. Navigators like Columbus and Magellan charted unknown territories, driven by the allure of trade routes and new lands. These voyages connected hemispheres, initiated the Columbian Exchange, and reshaped global maps and power dynamics forever, though often with devastating consequences for indigenous populations.</p>
+                </div>
+            </div>
         </div>
-    </div>
 
     <!-- Slide 3 -->
-    <div class="slide-item relative" style="background-image: url('images/4.jpg');">
-        <img src="images/4.jpg" alt="Fondo de la diapositiva 3" class="absolute inset-0 w-full h-full object-cover">
-        <div class="slide-content">
-            <h2 class="text-3xl md:text-5xl font-bold mb-4">El Desafío</h2>
-            <div class="text-xl md:text-2xl font-light mb-6 text-gray-200">2022</div>
-            <p class="text-base md:text-lg">
-                Enfrentamos un gran desafío que puso a prueba nuestra resiliencia, pero nos fortaleció como equipo y nos preparó para lo que vendría.
-            </p>
+        <div class="slide-item">
+            <div class="slide-card">
+                <img src="images/4.jpg" alt="Cracking the Code" class="slide-img">
+                <div class="slide-info">
+                    <h2 class="slide-title">Cracking the Code</h2>
+                    <p class="slide-desc">The discovery of the DNA double helix structure by Watson and Crick in 1953, with crucial contributions from Rosalind Franklin, was a monumental leap in biology. This elegant molecular structure unlocked the secrets of genetic inheritance, paving the way for advancements in medicine, genetics, and our fundamental understanding of life itself. It's a cornerstone of modern molecular biology.</p>
+                </div>
+            </div>
         </div>
-    </div>
 
     <!-- Slide 4 -->
-    <div class="slide-item relative" style="background-image: url('images/5.jpg');">
-        <img src="images/5.jpg" alt="Fondo de la diapositiva 4" class="absolute inset-0 w-full h-full object-cover">
-        <div class="slide-content">
-            <h2 class="text-3xl md:text-5xl font-bold mb-4">La Consolidación</h2>
-            <div class="text-xl md:text-2xl font-light mb-6 text-gray-200">2021</div>
-            <p class="text-base md:text-lg">
-                Marcamos nuestra presencia y consolidamos nuestra visión. Este año se definió nuestro camino a largo plazo.
-            </p>
+        <div class="slide-item">
+            <div class="slide-card">
+                <img src="images/5.jpg" alt="The Bauhaus Movement" class="slide-img">
+                <div class="slide-info">
+                    <h2 class="slide-title">The Bauhaus Movement</h2>
+                    <p class="slide-desc">Founded by Walter Gropius in 1919, the Bauhaus school in Germany revolutionized art, architecture, and design. It championed a new way of thinking, merging fine arts with crafts and technology. The movement's core principle was that form should follow function, leading to minimalist, geometric aesthetics that profoundly influenced modernism and continue to shape our visual world today.</p>
+                </div>
+            </div>
         </div>
-    </div>
 
     <!-- Sección oculta para transición -->
         <div id="fadeSection" style="opacity:0; pointer-events:none; transition: opacity 1s; min-height:100vh; background:rgba(245,245,245,0.98); position:fixed; inset:0; z-index:100; display:flex; align-items:center; justify-content:center;">
