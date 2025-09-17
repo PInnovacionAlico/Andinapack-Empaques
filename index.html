@@ -1,15 +1,149 @@
-<div class="box slide"><span>Full Screen Slider (linear) #1</span></div>
-<div class="box slide"><span>GSAP Timeline</span></div>
-<div class="box slide"><span>Responsive</span></div>
-<div class="box slide"><span>Super Simple</span></div>
-<div class="box slide"><span>What else you want ! ;)</span></div>
-<div id="nav">
-  <div id="prevtBtn" class='fa fa-chevron-circle-left'></div>
-  <div id="nextBtn" class='fa fa-chevron-circle-right'></div>
-</div>
-<div id="Dots"></div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Línea de tiempo de diapositivas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            overscroll-behavior: contain;
+        }
 
-<img id='logo' src="http://gravatar.com/avatar/5a224f121f96bd037bf6c1c1e2b686fb?s=256" height="70" width="70">
+        /* Barra de progreso */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            z-index: 50;
+        }
+        
+        #progressBar {
+            height: 100%;
+            background: #fff;
+            width: 0%;
+            transition: width 0.1s ease-out;
+        }
 
+        /* Estilos de las diapositivas */
+        .slide-item {
+            scroll-snap-align: start;
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        /* Fondo de cada slide */
+        .slide-item:nth-child(1) {
+            background-image: url('https://placehold.co/1920x1080/4f46e5/ffffff?text=Capítulo+1');
+        }
+        .slide-item:nth-child(2) {
+            background-image: url('https://placehold.co/1920x1080/059669/ffffff?text=Capítulo+2');
+        }
+        .slide-item:nth-child(3) {
+            background-image: url('https://placehold.co/1920x1080/f97316/ffffff?text=Capítulo+3');
+        }
+        .slide-item:nth-child(4) {
+            background-image: url('https://placehold.co/1920x1080/6366f1/ffffff?text=Capítulo+4');
+        }
 
+        .slide-content {
+            padding: 3rem 2rem;
+            max-width: 650px;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transform: translateY(0);
+            transition: transform 0.5s ease-in-out;
+        }
 
+        /* Animación en el scroll */
+        .slide-item:hover .slide-content {
+            transform: translateY(-10px);
+        }
+
+    </style>
+</head>
+<body class="bg-gray-100 antialiased">
+
+    <!-- Barra de progreso -->
+    <div class="progress-container">
+        <div id="progressBar"></div>
+    </div>
+    
+    <!-- Slide 1 -->
+    <div class="slide-item">
+        <div class="slide-content">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">El Comienzo</h2>
+            <div class="text-2xl font-light mb-6 text-gray-200">2024</div>
+            <p class="text-lg">
+                El inicio de un gran viaje, donde las primeras ideas tomaron forma y se sembraron las semillas de lo que vendría después.
+            </p>
+        </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide-item">
+        <div class="slide-content">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">La Expansión</h2>
+            <div class="text-2xl font-light mb-6 text-gray-200">2023</div>
+            <p class="text-lg">
+                Un año de crecimiento acelerado y de superar los primeros obstáculos. Se construyeron los cimientos de nuestro futuro.
+            </p>
+        </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide-item">
+        <div class="slide-content">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">El Desafío</h2>
+            <div class="text-2xl font-light mb-6 text-gray-200">2022</div>
+            <p class="text-lg">
+                Enfrentamos un gran desafío que puso a prueba nuestra resiliencia, pero nos fortaleció como equipo y nos preparó para lo que vendría.
+            </p>
+        </div>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="slide-item">
+        <div class="slide-content">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">La Consolidación</h2>
+            <div class="text-2xl font-light mb-6 text-gray-200">2021</div>
+            <p class="text-lg">
+                Marcamos nuestra presencia y consolidamos nuestra visión. Este año se definió nuestro camino a largo plazo.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const progressBar = document.getElementById('progressBar');
+
+        window.addEventListener('scroll', () => {
+            const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = window.scrollY;
+            const progress = (scrolled / totalHeight) * 100;
+            progressBar.style.width = progress + '%';
+        });
+    </script>
+</body>
+</html>
