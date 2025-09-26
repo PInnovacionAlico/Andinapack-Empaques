@@ -319,18 +319,24 @@
                 <p style="color:#666; margin:0;">Recibo de viaje</p>
             </div>
             <div style="border-top:2px dashed #ddd; border-bottom:2px dashed #ddd; padding:1.5rem;">
-                <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">
-                    <span>Fecha de finalización:</span>
-                    <span id="receipt-date">17/9/2025</span>
-                </div>
-                <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">
-                    <span>Hora de finalización:</span>
-                    <span id="receipt-time">--:--:--</span>
-                </div>
-                <div style="display:flex; justify-content:space-between;">
-                    <span>Slides Vistos:</span>
-                    <span id="receipt-slides">7 / 7</span>
-                </div>
+                    <ul style="list-style:none; padding:0; margin:0;">
+                        <li style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.1rem;">
+                            <img src="icons/Safety.svg" alt="Resistencia química" style="width:28px; height:28px;">
+                            <span>Resistencia química y al stress cracking</span>
+                        </li>
+                        <li style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.1rem;">
+                            <img src="icons/Recycle.svg" alt="Material reciclado" style="width:28px; height:28px;">
+                            <span>38% material reciclado en capa interna</span>
+                        </li>
+                        <li style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.1rem;">
+                            <img src="icons/Star.svg" alt="Brillo y calidad" style="width:28px; height:28px;">
+                            <span>Brillo y alta calidad en impresión atrapada</span>
+                        </li>
+                        <li style="display:flex; align-items:center; gap:0.75rem;">
+                            <img src="icons/Leaf.svg" alt="Evita plástico" style="width:28px; height:28px;">
+                            <span>Evita 16 ton de plástico en relleno sanitario</span>
+                        </li>
+                    </ul>
             </div>
             <div style="padding:1.5rem; text-align:center;">
                 <p style="font-size:1.1rem; font-weight:600; margin:0 0 0.5rem 0;">¡Gracias por explorar!</p>
@@ -394,24 +400,9 @@
         });
 
         // Receipt functionality
-        function setReceiptInfo() {
-            const now = new Date();
-            const day = String(now.getDate()).padStart(2, '0');
-            const month = String(now.getMonth() + 1).padStart(2, '0');
-            const year = now.getFullYear();
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const seconds = String(now.getSeconds()).padStart(2, '0');
-            
-            receiptDate.textContent = `${day}/${month}/${year}`;
-            receiptTime.textContent = `${hours}:${minutes}:${seconds}`;
-            
-            const slides = document.querySelectorAll('.slide-item').length;
-            receiptSlides.textContent = `${slides} / ${slides}`;
-        }
+
 
         showReceiptBtn.addEventListener('click', function() {
-            setReceiptInfo();
             receiptVisible = true;
             timeline.style.opacity = '0';
             setTimeout(() => {
