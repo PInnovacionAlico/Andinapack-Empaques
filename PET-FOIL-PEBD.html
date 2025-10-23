@@ -30,172 +30,14 @@
             })();
         </script>
     <title>¡Conoce tu empaque!</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@700&display=swap');
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #f7f7f7;
-            scroll-snap-type: y mandatory;
-            overflow-y: scroll;
-            overscroll-behavior: contain;
-            margin: 0;
-            padding: 0;
-        }
-
-        .progress-container {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 12px;
-            background: rgba(255,255,255,0.2);
-            z-index: 50;
-        }
-
-        #progressBar {
-            height: 100%;
-            background: #000f9f;
-            width: 0%;
-            transition: width 0.1s ease-out;
-        }
-
-        #progressDot {
-            position: absolute;
-            top: -48px;
-            left: 0%;
-            transition: left 0.1s ease-out;
-            width: 64px;
-            height: 64px;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-        }
-
-        .slide-item {
-            scroll-snap-align: start;
-            min-height: 100vh;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: none;
-            text-align: left;
-            padding: 2rem 1rem;
-            box-sizing: border-box;
-        }
-
-        .slide-card {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 6px 32px rgba(0,0,0,0.10);
-            overflow: hidden;
-            max-width: 1200px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        @media (min-width: 900px) {
-            .slide-card {
-                flex-direction: row;
-                align-items: center;
-                padding: 2.5rem 3rem;
-            }
-        }
-
-        .slide-img {
-            flex: 1 1 45%;
-            border-radius: 16px;
-            box-shadow: 0 2px 16px rgba(0,0,0,0.10);
-            object-fit: cover;
-            width: 100%;
-            height: 320px;
-            max-width: 520px;
-        }
-
-        @media (min-width: 900px) {
-            .slide-img {
-                height: 400px;
-            }
-        }
-
-        .slide-info {
-            flex: 1 1 55%;
-            padding-left: 0;
-        }
-
-        @media (min-width: 900px) {
-            .slide-info {
-                padding-left: 2.5rem;
-            }
-        }
-
-        .slide-title {
-            font-family: 'Space Grotesk', 'Inter', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #22b8f9;
-            margin-bottom: 1rem;
-        }
-
-        @media (min-width: 900px) {
-            .slide-title {
-                font-size: 3.5rem;
-            }
-        }
-
-        .slide-desc {
-            font-size: 1.25rem;
-            color: #444;
-            line-height: 1.6;
-        }
-
-        .receipt-section {
-            scroll-snap-align: start;
-            min-height: 100vh;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem 1rem;
-            box-sizing: border-box;
-        }
-
-        .receipt-button {
-            background: #ffa726;
-            color: #222;
-            font-size: 1.1rem;
-            font-weight: 500;
-            padding: 0.85rem 2.5rem;
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-            cursor: pointer;
-            transition: background 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin: 2rem 0;
-        }
-
-        .receipt-button:hover {
-            background: #ff9800;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
     <!-- Hero Section -->
-    <section id="hero" style="height:100vh;min-height:100vh;width:100vw;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#f7f7f7;position:fixed;top:0;left:0;z-index:200;opacity:1;transition:opacity 0.3s ease-out;">
-        <div style="position:absolute;inset:0;width:100vw;height:100vh;z-index:0;pointer-events:none;">
-            <img src="assets/images/Bodegon.webp" alt="Bodegon" style="width:100vw;height:100vh;object-fit:cover;opacity:0.5;">
-        </div>
+    <section id="hero" style="height:100vh;min-height:100vh;width:100vw;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#ffffff;position:fixed;top:0;left:0;z-index:200;opacity:1;transition:opacity 0.3s ease-out;">
         <div style="max-width:90vw;width:100%;text-align:center;padding:0 1.5rem;transform:translateY(0);transition:transform 0.4s ease-out;">
-            <h1 style="font-family:'Space Grotesk','Inter',sans-serif;font-size:2.5rem;font-weight:700;color:#111;line-height:1.1;transform:translateY(0);opacity:1;transition:all 0.4s ease-out 0.1s;">¡Conoce tu Empaque!</h1>
+            <h1 style="font-family:'Space Grotesk','Inter',sans-serif;font-size:2.5rem;font-weight:700;color:#111;line-height:1.1;transform:translateY(0);opacity:1;transition:all 0.4s ease-out 0.1s;margin-bottom:0.5rem;">¡Conoce tu Empaque!</h1>
+            <h2 style="font-family:'Space Grotesk','Inter',sans-serif;font-size:1.5rem;font-weight:600;color:#22b8f9;line-height:1.2;transform:translateY(0);opacity:1;transition:all 0.4s ease-out 0.15s;margin:0 0 1rem 0;">PET/FOIL/PEBD</h2>
             <p style="font-size:1.1rem;color:#666;margin:1.5rem 0 2rem 0;line-height:1.5;transform:translateY(0);opacity:1;transition:all 0.4s ease-out 0.2s;">¡Adéntrate en un viaje para conocer el proceso de empaque! Desplázate hacia abajo para explorar momentos clave, una diapositiva a la vez.</p>
             <button id="startExploringBtn" class="receipt-button" style="transform:translateY(0);opacity:1;transition:all 0.4s ease-out 0.3s;">
                 Empezar a explorar
@@ -219,7 +61,7 @@
 
         <div class="slide-item">
             <div class="slide-card">
-                <img src="assets/images/PET-FOIL-PEBD/image_2.jpg" alt="Extrusión: donde nace la capa sellante" class="slide-img">
+                <img src="assets/images/PET-FOIL-PEBD/image_1.jpg" alt="Extrusión: donde nace la capa sellante" class="slide-img">
                 <div class="slide-info">
                     <h2 class="slide-title">Extrusión: donde nace la capa sellante</h2>
                     <p class="slide-desc">El proceso inicia con la extrusión, donde se produce la capa sellante de PEBD a partir de resinas y aditivos que le otorgan sellabilidad, flexibilidad y resistencia térmica. El material fundido se convierte en una película delgada y uniforme, lista para ser laminada con otras estructuras.</p>
@@ -229,7 +71,7 @@
 
         <div class="slide-item">
             <div class="slide-card">
-                <img src="assets/images/PET-FOIL-PEBD/image_3.jpg" alt="Impresión: color, brillo y protección" class="slide-img">
+                <img src="assets/images/PET-FOIL-PEBD/image_2.jpg" alt="Impresión: color, brillo y protección" class="slide-img">
                 <div class="slide-info">
                     <h2 class="slide-title">Impresión: color, brillo y protección</h2>
                     <p class="slide-desc">La lámina de PET, que será la cara exterior del empaque, se imprime mediante tecnología de flexografía. Las tintas resistentes al calor y la abrasión garantizan una excelente reproducción del color, brillo y presentación gráfica, preservando la identidad visual del producto.</p>
@@ -240,7 +82,7 @@
 
         <div class="slide-item">
             <div class="slide-card">
-                <img src="assets/images/PET-FOIL-PEBD/image_5.jpg" alt="Laminación: capas que trabajan en conjunto" class="slide-img">
+                <img src="assets/images/PET-FOIL-PEBD/image_3.jpg" alt="Laminación: capas que trabajan en conjunto" class="slide-img">
                 <div class="slide-info">
                     <h2 class="slide-title">Laminación: capas que trabajan en conjunto</h2>
                     <p class="slide-desc">En esta etapa, las capas de PET impreso, FOIL y PEBD se unen mediante adhesivos. El foil de aluminio aporta barrera a la luz, oxígeno y humedad, mientras el PEBD asegura una sellabilidad eficiente. El resultado: una estructura multicapa de alto desempeño.</p>
@@ -250,7 +92,7 @@
 
         <div class="slide-item">
             <div class="slide-card">
-                <img src="assets/images/PET-FOIL-PEBD/image_6.jpg" alt="Corte: precisión para cada formato" class="slide-img">
+                <img src="assets/images/PET-FOIL-PEBD/image_4.jpg" alt="Corte: precisión para cada formato" class="slide-img">
                 <div class="slide-info">
                     <h2 class="slide-title">Corte: precisión para cada formato</h2>
                     <p class="slide-desc">El material laminado se ajusta en anchos y longitudes según el formato requerido. Aquí se controla la tensión, uniformidad y alineación, garantizando bobinas terminadas de alta calidad, listas para conversión o despacho.</p>
@@ -261,7 +103,7 @@
    
         <div class="slide-item">
             <div class="slide-card">
-                <img src="assets/images/PET-FOIL-PEBD/image_6.jpg" alt="Sellado: el empaque toma forma" class="slide-img">
+                <img src="assets/images/PET-FOIL-PEBD/image_5.jpg" alt="Sellado: el empaque toma forma" class="slide-img">
                 <div class="slide-info">
                     <h2 class="slide-title">Sellado: el empaque toma forma</h2>
                     <p class="slide-desc">El material laminado se transforma en el empaque final —ya sea bolsa, sachet o pouch— mediante sellado térmico. La capa de PEBD permite obtener cierres herméticos y resistentes, asegurando la integridad del producto.</p>
@@ -272,7 +114,7 @@
         <!-- Slide 7 -->
         <div class="slide-item">
             <div class="slide-card">
-                <img src="assets/images/PET-FOIL-PEBD/image_7.jpg" alt="Resultado final: empaque de alto desempeño" class="slide-img">
+                <img src="assets/images/PET-FOIL-PEBD/image_6.png" alt="Resultado final: empaque de alto desempeño" class="slide-img">
                 <div class="slide-info">
                     <h2 class="slide-title">Resultado final: empaque de alto desempeño</h2>
                     <p class="slide-desc">El proceso culmina con un empaque flexible PET/FOIL/PEBD que combina excelente presentación, alta barrera y óptimo desempeño en sellado, cumpliendo los exigentes estándares de calidad de Alico</p>
@@ -342,124 +184,6 @@
         </div>
     </div>
 
-    <script>
-        // Elements
-        const hero = document.getElementById('hero');
-        const timeline = document.getElementById('timeline-slides');
-        const fadeSection = document.getElementById('fadeSection');
-        const startExploringBtn = document.getElementById('startExploringBtn');
-        const showReceiptBtn = document.getElementById('showReceiptBtn');
-        const startOverBtn = document.getElementById('startOverBtn');
-        const progressBar = document.getElementById('progressBar');
-        const progressDot = document.getElementById('progressDot');
-        const receiptDate = document.getElementById('receipt-date');
-        const receiptTime = document.getElementById('receipt-time');
-        const receiptSlides = document.getElementById('receipt-slides');
-
-        // Initial state
-        document.body.style.overflow = 'hidden';
-        let receiptVisible = false;
-
-        // Start exploring functionality
-        function showTimeline() {
-            hero.style.opacity = '0';
-            setTimeout(() => {
-                hero.style.display = 'none';
-                timeline.style.display = 'block';
-                timeline.style.opacity = '1';
-                document.body.style.overflow = '';
-                window.scrollTo({ top: 0, behavior: 'auto' });
-            }, 300);
-        }
-
-        startExploringBtn.addEventListener('click', showTimeline);
-
-        // Progress bar functionality
-        window.addEventListener('scroll', () => {
-            if (receiptVisible || hero.style.display !== 'none') return;
-            
-            const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrolled = window.scrollY;
-            const progress = Math.min((scrolled / totalHeight) * 100, 100);
-            
-            progressBar.style.width = progress + '%';
-            progressDot.style.left = `calc(${progress}% - 32px)`;
-        });
-
-        // Receipt functionality
-
-
-        showReceiptBtn.addEventListener('click', function() {
-            receiptVisible = true;
-            timeline.style.opacity = '0';
-            setTimeout(() => {
-                timeline.style.display = 'none';
-                fadeSection.style.opacity = '1';
-                fadeSection.style.pointerEvents = 'auto';
-            }, 700);
-        });
-
-        // Start over functionality with animation
-        startOverBtn.addEventListener('click', function() {
-            receiptVisible = false;
-            
-            // Hide receipt with animation
-            fadeSection.style.opacity = '0';
-            fadeSection.style.pointerEvents = 'none';
-            
-            setTimeout(() => {
-                // Reset scroll
-                window.scrollTo({ top: 0, behavior: 'auto' });
-                
-                // Hide timeline
-                timeline.style.display = 'none';
-                timeline.style.opacity = '0';
-                
-                // Show hero section
-                hero.style.display = 'flex';
-                hero.style.opacity = '0';
-                document.body.style.overflow = 'hidden';
-                
-                // Reset hero content position for animation
-                const heroContent = hero.querySelector('div');
-                const heroTitle = hero.querySelector('h1');
-                const heroText = hero.querySelector('p');
-                const heroButton = hero.querySelector('button');
-                
-                heroContent.style.transform = 'translateY(30px)';
-                heroTitle.style.transform = 'translateY(20px)';
-                heroTitle.style.opacity = '0';
-                heroText.style.transform = 'translateY(20px)';
-                heroText.style.opacity = '0';
-                heroButton.style.transform = 'translateY(20px)';
-                heroButton.style.opacity = '0';
-                
-                // Animate hero entrance
-                setTimeout(() => {
-                    hero.style.opacity = '1';
-                    heroContent.style.transform = 'translateY(0)';
-                    
-                    setTimeout(() => {
-                        heroTitle.style.transform = 'translateY(0)';
-                        heroTitle.style.opacity = '1';
-                    }, 100);
-                    
-                    setTimeout(() => {
-                        heroText.style.transform = 'translateY(0)';
-                        heroText.style.opacity = '1';
-                    }, 200);
-                    
-                    setTimeout(() => {
-                        heroButton.style.transform = 'translateY(0)';
-                        heroButton.style.opacity = '1';
-                    }, 300);
-                }, 50);
-                
-                // Reset progress bar
-                progressBar.style.width = '0%';
-                progressDot.style.left = '-32px';
-            }, 300);
-        });
-    </script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
