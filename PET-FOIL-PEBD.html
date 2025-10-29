@@ -141,7 +141,7 @@
 
     <!-- Receipt Modal -->
     <div id="fadeSection" style="opacity:0; pointer-events:none; transition: opacity 1s; min-height:100vh; background:rgba(245,245,245,0.98); position:fixed; inset:0; z-index:100; display:flex; align-items:center; justify-content:center; overflow-y:auto; padding:2rem 0;">
-        <div style="width:100%; max-width:400px; background:#fff; border-radius:20px; box-shadow:0 10px 40px rgba(0,0,0,0.15); font-family:'Inter',sans-serif; font-size:14px; color:#333; overflow:hidden; margin:auto;">
+        <div style="width:100%; max-width:400px; background:#fff; border-radius:20px 20px 0 0; box-shadow:0 10px 40px rgba(0,0,0,0.15); font-family:'Inter',sans-serif; font-size:14px; color:#333; overflow:visible; margin:auto; position:relative; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), 97.5% calc(100% - 10px), 95% calc(100% - 20px), 92.5% calc(100% - 10px), 90% calc(100% - 20px), 87.5% calc(100% - 10px), 85% calc(100% - 20px), 82.5% calc(100% - 10px), 80% calc(100% - 20px), 77.5% calc(100% - 10px), 75% calc(100% - 20px), 72.5% calc(100% - 10px), 70% calc(100% - 20px), 67.5% calc(100% - 10px), 65% calc(100% - 20px), 62.5% calc(100% - 10px), 60% calc(100% - 20px), 57.5% calc(100% - 10px), 55% calc(100% - 20px), 52.5% calc(100% - 10px), 50% calc(100% - 20px), 47.5% calc(100% - 10px), 45% calc(100% - 20px), 42.5% calc(100% - 10px), 40% calc(100% - 20px), 37.5% calc(100% - 10px), 35% calc(100% - 20px), 32.5% calc(100% - 10px), 30% calc(100% - 20px), 27.5% calc(100% - 10px), 25% calc(100% - 20px), 22.5% calc(100% - 10px), 20% calc(100% - 20px), 17.5% calc(100% - 10px), 15% calc(100% - 20px), 12.5% calc(100% - 10px), 10% calc(100% - 20px), 7.5% calc(100% - 10px), 5% calc(100% - 20px), 2.5% calc(100% - 10px), 0 calc(100% - 20px));">
             <div style="padding:1.5rem; text-align:center;">
                 <img src="assets/images/icono-alico.png" alt="Logo Alico" style="height:48px; width:48px; margin:0 auto 0.5rem; display:block;">
                 <h2 style="margin:0.5rem 0 0 0; font-family:'Space Grotesk','Inter',sans-serif; font-size:1.5rem; font-weight:700;">¡Conoce tu empaque!</h2>
@@ -170,7 +170,7 @@
             <div style="padding:1.5rem; text-align:center;">
                 <p style="font-size:1.1rem; font-weight:600; margin:0 0 0.5rem 0;">¡Gracias por explorar!</p>
                 <p style="margin:0 0 1.5rem 0; font-size:12px; color:#666;">Has completado con éxito tu recorrido por nuestra línea de tiempo. Esperamos que hayas disfrutado la experiencia.</p>
-                <button id="startOverBtn" style="width:100%; background:#ffa726; color:#222; padding:0.75rem 1rem; border:none; border-radius:10px; font-weight:500; cursor:pointer; transition:background 0.2s; display:flex; align-items:center; justify-content:center; gap:0.5rem; margin-bottom:1.5rem;">
+                <button id="startOverBtn" style="width:100%; background:#ffa726; color:#222; padding:0.75rem 1rem; border:none; border-radius:10px; font-weight:500; cursor:pointer; transition:background 0.2s; display:flex; align-items:center; justify-content:center; gap:0.5rem; margin-bottom:0.75rem;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
                         <path d="M21 3v5h-5"></path>
@@ -181,7 +181,6 @@
                 </button>
                 <img src="assets/images/barcode.png" alt="Barcode" style="display: block; margin: 0 auto; width: 100%; max-width: 200px;">
             </div>
-            <div style="height:16px; background-image:url('data:image/svg+xml,%3csvg width=\'100%25\' height=\'100%25\' xmlns=\'http://www.w3.org/2000/svg\'%3e%3crect width=\'100%25\' height=\'100%25\' fill=\'none\' stroke=\'%23333\' stroke-width=\'4\' stroke-dasharray=\'6%2c 14\' stroke-dashoffset=\'0\' stroke-linecap=\'square\'/%3e%3c/svg%3e');"></div>
         </div>
     </div>
 
